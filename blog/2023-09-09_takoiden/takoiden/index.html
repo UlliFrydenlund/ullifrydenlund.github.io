@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Такой день</title>
+		<meta name="description" content="День не задался.">
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Ulli Frydenlund Blog">
+		<link rel="alternate" href="/feed/feed.json" type="application/json" title="Ulli Frydenlund Blog">
+		
+		<style>/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #8292a2;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+	color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+	color: #e6db74;
+}
+
+.token.keyword {
+	color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+	color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+/*
+ * New diff- syntax
+ */
+
+pre[class*="language-diff-"] {
+	--eleventy-code-padding: 1.25em;
+	padding-left: var(--eleventy-code-padding);
+	padding-right: var(--eleventy-code-padding);
+}
+.token.deleted {
+	background-color: hsl(0, 51%, 37%);
+	color: inherit;
+}
+.token.inserted {
+	background-color: hsl(126, 31%, 39%);
+	color: inherit;
+}
+
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.token.prefix.inserted,
+.token.prefix.deleted {
+	width: var(--eleventy-code-padding);
+	background-color: rgba(0,0,0,.2);
+}
+
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+	display: block;
+	margin-left: calc(-1 * var(--eleventy-code-padding));
+	margin-right: calc(-1 * var(--eleventy-code-padding));
+	text-decoration: none; /* override del, ins, mark defaults */
+	color: inherit; /* override del, ins, mark defaults */
+}
+* { box-sizing: border-box; }
+/* Defaults */
+:root {
+	--font-family: -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #e0e0e0;
+	--color-gray-50: #C0C0C0;
+	--color-gray-90: #333;
+
+	--background-color: #fff;
+
+	--text-color: var(--color-gray-90);
+	--text-color-link: #082840;
+	--text-color-link-active: #5f2b48;
+	--text-color-link-visited: #17050F;
+
+	--syntax-tab-size: 2;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-gray-20: #e0e0e0;
+		--color-gray-50: #C0C0C0;
+		--color-gray-90: #dad8d8;
+
+		/* --text-color is assigned to --color-gray-_ above */
+		--text-color-link: #1493fb;
+		--text-color-link-active: #6969f7;
+		--text-color-link-visited: #a6a6f8;
+
+		--background-color: #15202b;
+	}
+}
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 40em;
+}
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+}
+
+li {
+	line-height: 1.5;
+}
+
+a[href] {
+	color: var(--text-color-link);
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	list-style: none;
+	border-top: 1px dashed var(--color-gray-20);
+	padding: 1em 0;
+}
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family-monospace);
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/* Header */
+header {
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1em; /* 16px /16 */
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 1.5rem;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+}
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+}
+.postlist-link {
+	font-size: 1.1875em; /* 19px /16 */
+	font-weight: 700;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: .1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: #aaa;
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/" class="home-link">Ulli Frydenlund Blog</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/">Блог</a></li>
+					<li class="nav-item"><a href="/blog/">Архив</a></li>
+					<li class="nav-item"><a href="/about/">Обо мне</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			
+<h1>Такой день</h1>
+
+<ul class="post-metadata">
+	<li><time datetime="2023-09-09">09 September 2023</time></li>
+	<li><a href="/tags/grust/" class="post-tag">грусть</a>, </li>
+	<li><a href="/tags/pravda/" class="post-tag">правда</a></li>
+</ul>
+
+<p>День назад я была огурчик, готовый идти вперёд на любые подвиги. Сегодня же мне очень грустно. Бывают такие дни, когда прям плохо. Эти выходные я планировала устроить забег по магазинам, прикупить одежду, плюс ко всему и деньки выдались относительно тёплые-солнечные, но...</p>
+<p>Всё началось с того, что утром я проснулась с ужасной головной болью, которая появилась, как вседа, внезапно и без объявления. Всё было ничего, пока не случилось ещё кое-что. В моей жизни есть люди (кое-кто из родственников, кто бы сомневался), миссией и главной задачей которых являетя меня расстраивать. Я всегда открыта, всегда слушаю, всегда помогаю, но этот тип людей - просто непробиваемые болваны. Я девочка воспитанная и добрая, поэтому вывести меня на крик сложно, но в моём характере есть и воинственная черта, которую пробуждать не стоит и которой я сама боюсь. Они хотят, чтобы я и обед/ужин готовила, и развлекала их, и жалела, и слушала, была послушной и доброй, при этом ещё и выслушивая разного рода претензии и неприятности в свой адрес. А когда я говорю: &quot;Полегче, я тоже живой человек а не робот, я тоже дышу и чувствую!&quot; то в ответ получаю: &quot;Ты должна, ты обязана, замолчи.&quot; В эти моменты так и хочется взять и вышибить кулаками всё это дерьмо, отдубасить как следует, чтобы... я не знаю чтобы что, просто хочется сделать больно. Наверное это такой первобытный инстинкт, колотить дубиной тупых неандертальцев, у которых мозгов хватает только чтобы пить коньяк (ненавижу это поганое пойло), жрать твою еду, брать у тебя деньги и при этом ещё недовольно чавкать и говорить гадости. Слова, мольбы, слёзы, конструктив - бесполезны и услышаны ими не будут, до них доходит только громкий крик. Я прям киплю во время написания этого, готова разнести всю комнату и разбить компьютер - но толку? Если честно, раньше я была той ещё валькирией, стулья даже швыряла, но в последние годы я очень сильно изменилась и обычно всё это выплакиваю ночью в подушки (да, я люблю когда у меня много подушечек).</p>
+<p>Интересный момент в том, что один человек внезапно признал свою несправедливость, что меня порядком удивило. Это не тот тип людей, от которых можно услышать слова с хоть какими-то извинениями, но это прям блеснул свет в конце тоннеля.</p>
+<p>В час дня я выпила таблетку аспирина и перешла в режим зомби. Плохие события всегда превращают меня в безвольный помидор, будто бы вытягивая все жизненные соки, плюс ещё с аспирина мне всегда хочется спать. В итоге, вместо классного уикенда я прозатупала весь день во всякую чернуху на ютубе. Даже в игры не играла. Запустила 3 борду минут на 15, потом вечером минут 20 в майнкрафт побегала. Ночью, уже практически перед сном и перед написанием сего опуса, зашла в ворлд оф варкрафт, создала орчиху-шаманку, побегала немножко. И всё без задора. Когда-то игры приносили мне удовольствие, но когда стрелка компаса жизненных ценностей и ориентиров повернулась в другом направлении - вдруг перестали, превратившись скорее в привычку и в реквием по беззаботной, незаметно пролетевшей мимо меня юности. Почему я играю в игры, вместо того, чтобы по-настоящему отдыхать? Об этом в другой раз, это тема для отдельного поста, а я уже устала.</p>
+<p>А знаете, что самое смешное (я об этом уже упоминала в своём первом посте), что мне мои коллеги по работе мне ближе чем родственники. Они (коллеги) помогали мне морально в 2022. Хочу признаться, что в октябре 22 я порезала себе руки, моим родственникам было всё равно, всё что я услышала, это то, какая я тупая дура. Разбираться в причинах моего, пусть и глупого, поступка, разумеется, никто не стал. Конечно, будет нечестно сказать, что прям ВСЕМ родственникам на меня всё равно, нет, но факт того, что я предпочла довериться, можно сказать, 'чужим' людям, чем родным, говорит сам за себя, как мне кажется.</p>
+<p>Этим летом у нас был долгий разговор с моей коллегой, после которого я шла домой счастливая. Первый раз за грёбаные 10 лет ежедневного кошмара наиву я шла домой по-настоящему счастливая. Я забыла каково это, радоваться жизни. Я рыдала пол ночи и не могла успокоиться, как мне было хорошо и приятно, я почувствовала себя ЖИВЫМ человеком а не половой тряпкой, валяющейся у раковины, предназнаенной для того, чтобы ей пользовались когда нужно, не спросив её, что она чувствует и хочет ли. Эти люди увидели, что мне плохо (а сказать я не могла, я настолько стесняшка насколько это можно себе представить, хоть и усиленно борюсь с этим) и решили помочь, поддержать морально, поделиться своими историями и посоветовать как мне быть. Они увидели во мне человека, хотя я считала, что уже полностью выгорела изнутри, превратившись в робота без души. Они объяснили мне, что я ИМЕЮ ПРАВО быть счастливой, жить и заниматься тем, что мне нравится. Я всегда буду им благодарна, я отдам за них свою жизнь, если потребуется, за то что решили поддержать и тем самым, возможно, спасли от ************. Возможно, я и предпочла бы тихонько умереть, чтобы пойти дальше, в следующую, надеюсь, более счастливую жизнь, но эти люди показали мне, что ещё не всё потеряно, что поломанную жизнь и искорёженную вхлам психику ещё можно исправить. Этот единственный счастливый из 4000 несчастных дней показал, что МОЖНО, и теперь я точно это знаю.</p>
+<p>Хотя, если припомнить, то не единственный. Весной 2022 я впервые за более чем 10 лет заплакала. Я столько времени держала всё в себе, была сильной, удерживала эти позывы, но очередное видео на ютубе оказалось подборкой грустных мелодий на тему, что всё будет хорошо - и я упала на стол и разревелась. Мне было так хорошо, так легко и свободно. Случилось это в субботу, оба выходных я прорыдала практически без остановки с интервалами в несколько часов. Следующие несколько месяцев я ревела КАЖДУЮ ночь, а также иногда бежала почти бегом домой, чтобы не завыть прямо на улице. Столько накопилось. С тех пор мне доступен этот хитрый лайфхак, который позволяет переживать всё то, что я переживаю. Поначалу мне было стыдно, но потом я подумала: &quot;До меня И ТАК никому нет дела, так в чём проблема, если я буду плакать? Всем будет также всё равно.&quot; Короче, ревите побольше и не слушайте, если над вами смеются, они просто застряли в рамках общественных клише и прочей ерунды для тех, кто не хочет включать мозг. Ваша Плакса-Улли.</p>
+<p>P.S. Перечитываю утром то, что я тут наваяла. Что можно сказать, образ весёлой девочки с севера провалился. Я хоть и планировала этот блог как своеобразный дневник, но думала создать что-то типа вымышленного мира, где у меня всё хорошо и поняшки скачут. Но я думаю что с меня хватит вымышленных миров, будем по-обычному.</p>
+<p><picture><source type="image/avif" srcset="/img/Tm-3ZIWbij-608.avif 608w"><img alt="Зима совсем близко" loading="lazy" decoding="async" src="/img/Tm-3ZIWbij-608.webp" width="608" height="404"></picture>
+<a href="https://ullifrydenlund.github.io/img/DCIM-02.webp">Зима совсем близко</a></p>
+
+<ul class="links-nextprev"><li>Previous: <a href="/blog/2023-09-02_night/night/">Весёлая ночка</a></li>
+</ul>
+<script src="https://utteranc.es/client.js"
+        repo="UlliFrydenlund/ullifrydenlund.github.io"
+        issue-term="title"
+        label="💬"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+		</main>
+
+		<footer></footer>
+
+		<!-- Current page: /blog/2023-09-09_takoiden/takoiden/ -->
+	</body>
+</html>
