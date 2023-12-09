@@ -72,6 +72,21 @@
 	</url>
 	
 	<url>
+		<loc>https://ullifrydenlund.github.io/tags/zima/</loc>
+		<lastmod>2023-08-21</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://ullifrydenlund.github.io/tags/obnovlenie/</loc>
+		<lastmod>2023-08-21</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://ullifrydenlund.github.io/tags/novyj-post/</loc>
+		<lastmod>2023-08-21</lastmod>
+	</url>
+	
+	<url>
 		<loc>https://ullifrydenlund.github.io/about/</loc>
 		<lastmod>2023-08-21</lastmod>
 	</url>
@@ -89,5 +104,10 @@
 	<url>
 		<loc>https://ullifrydenlund.github.io/blog/2023-09-09_takoiden/takoiden/</loc>
 		<lastmod>2023-09-09</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://ullifrydenlund.github.io/blog/2023-12-09_update/update/</loc>
+		<lastmod>2023-12-09</lastmod>
 	</url>
 </urlset>
